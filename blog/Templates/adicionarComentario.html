@@ -1,0 +1,59 @@
+
+<style>
+    body {
+        background-color: #000000;
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    form input[type="text"],
+    form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    form button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    form button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+
+
+
+<form method="post" action="{% url 'adicionarComentario' post.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar Comentário</button>
+</form>

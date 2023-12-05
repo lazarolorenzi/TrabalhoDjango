@@ -1,0 +1,40 @@
+<style>
+    article {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+</style>
+{% extends 'base.html' %}
+
+{% block title %}Seu Blog{% endblock %}
+
+
+
+{% block content %}
+
+<section>
+    <article>
+        <h1>{{post.titulo}}</h1>
+        <br>
+        <h1>Data de Criação:</h1>
+        <p> {{post.dataDeCriacao}}</p>
+        <h1>Conteudo</h1>
+        <p> {{post.conteudo | safe}}</p>
+        <form method="post" action="{% url 'adicionarComentario' post.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit"><strong>Adicionar Comentário</strong></button>
+        </form>
+
+        <h2>Comentários</h2>
+        {% for comentario in comentarios %}
+            <p><strong>{{ comentario.autor }}</strong>: {{ comentario.conteudo }}</p>
+        {% endfor %}
+    </article>
+{% endblock %}
+</section>

@@ -52,9 +52,6 @@ def login(request):
             return render(request, 'login.html', {'error_message': error_message})
 
 
-@user_passes_test(lambda u: u.is_authenticated and u.is_staff)
-def Botaodoadmin(request):
-    return render(request, 'admin')
 
 
 def adicionarComentario(request, post_id):

@@ -27,7 +27,7 @@
         <p> {{post.conteudo | safe}}</p>
         <form method="post" action="{% url 'adicionarComentario' post.id %}">
             {% csrf_token %}
-            {{ form.as_p }}
+        
             <button type="submit"><strong>Adicionar Comentário</strong></button>
         </form>
 
